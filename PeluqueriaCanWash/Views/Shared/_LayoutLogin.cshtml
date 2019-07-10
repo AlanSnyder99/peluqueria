@@ -19,7 +19,24 @@
     <div class="d-flex justify-content-center align-items-center">
         <img class="logo" src="@Url.Content("~/Content/images/logoCanWash.png")" alt="" />
     </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-0 px-4">
+    <div class="navbar p-2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Home")">Home</a></li>
+        </ul>
+    </div>
+    <div class="d-flex flex-row align-items-center">
+        <a href="#" class="pl-3">
+            <i class="fa fa-map-marker"></i>
+            <span>¿Cómo llegar?</span>
+        </a>
+        <a href="#" class="pl-3">
+            <i class="fa fa-phone"></i>
+            <span>49242649</span>
+        </a>
     
+    </div>
+</nav>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Scripts/bootstrap.min.js"></script>
