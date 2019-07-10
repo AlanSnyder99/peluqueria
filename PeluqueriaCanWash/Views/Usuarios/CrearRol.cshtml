@@ -1,0 +1,73 @@
+﻿@model PeluqueriaCanWash.Models.Rol
+@{
+    ViewBag.Title = "CrearRol";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="contenedor-principal pl-5 pr-5 pt-3">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" id="imageTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="tabDatosUsuario" href="#datosUsuario" data-toggle="tab"
+                   role="tab" aria-controls="datosUsuario" aria-selected="false">
+                    Datos del Rol
+                </a>
+            </li>
+            
+        </ul>
+
+        <br />
+        <!-- Tab panes -->
+        <div class="tab-content" id="tabContent">
+            @*Solapa datos de usuario*@
+            <div role="tabpanel" class="tab-pane fade show active" id="datosUsuario">
+                <div class="d-flex flex-column justify-content-center align-items-center py-4">
+                    <input type="text" id="txtUsuarioId" value="@Html.DisplayFor(model => model.Id)" hidden="hidden" />
+                    <div class="form-row mt-3">
+                        <div class="form-group col">
+                            <div class="d-flex justify-content-start align-items-center">
+                                <div class="d-flex justify-content-start align-items-center iconos">
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="text" name="nombreRol" id="nombreRol" class="form-control form-control-sm" maxlength="50" placeholder="Nombre" value="@Html.DisplayFor(model => model.Nombre)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="form-row">
+                        <p>Permisos: </p>
+                        <div class="form-group col">
+                            <div class="d-flex justify-content-start align-items-center">
+                                <div class="d-flex justify-content-start align-items-center iconos">
+                                    <i class="fa fa-asterisk"></i>
+                                    <select class="form-control form-control-sm">
+                                        <option>Total</option>
+                                        <option>Parcial</option>
+                                        <option selected="selected">Minimo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+                </div>
+                <div class="d-flex justify-content-end m-2">
+                    <button id="btnCancelar" class="btn btn-limpiar mr-2">Cancelar</button>
+                    @if (ViewBag.estaEditando)
+                    {
+                        <button id="btnGuardar" class="btn btn-buscar btnGuardar">Guardar</button>
+
+                    }
+                    else
+                    {
+                        <button id="btnContinuar" class="btn btn-buscar">Continuar</button>
+                    }
+
+                </div>
+            </div>
+
+        
+        </div>
+    </div>
+

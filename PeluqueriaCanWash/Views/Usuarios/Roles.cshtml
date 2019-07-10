@@ -1,0 +1,54 @@
+﻿@using PagedList;
+@using PagedList.Mvc
+@model PagedList.IPagedList<PeluqueriaCanWash.Models.Rol>
+@{
+    ViewBag.Title = "Roles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 mt-4 mb-3">
+    <h4>Consulta de Roles</h4>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                   
+                    <td>
+                        <div class="d-flex flex-row align-items-center">
+                            
+                            <a class="botones" href="@Url.Action("DetallesRol", "Usuarios", new {id = item.Id})" title="Modificar">
+                                <i class="fa fa-edit" aria-hidden="true"></i>
+                            </a>
+                            <a class="botones btnEliminarUsuario">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+
+                        </div>
+                    </td>
+                </tr>
+            }
+        <tbody>
+    </table>
+    <div class="paginado d-flex justify-content-center">
+        @Html.PagedListPager(Model, pag => Url.Action("Index", "Usuarios", new { pag }))
+    </div>
+</div>
+<div class="d-flex col-12 justify-content-end mt-3">
+    <a href="@Url.Action("CrearRol", "Usuarios")" class="action_item btn btn-xs btn-success">
+        Nuevo Rol
+    </a>
+</div>
+
